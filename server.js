@@ -54,7 +54,7 @@ app.post("/api/create-payment", async (req, res) => {
 // ✅ Route: Handle callback from NowPayments after payment
 app.post("/api/payment-callback", async (req, res) => {
   const data = req.body;
-
+console.log("Payment callback received:", data);
   const isSuccess = data.payment_status === "finished";
   console.log(data.order_description)
   const userEmail = data.order_description.split("||")[0];
