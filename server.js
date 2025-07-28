@@ -32,7 +32,7 @@ app.post("/api/create-payment", async (req, res) => {
         price_currency: "usd",
         pay_currency: "btc",
         order_description,
-        ipn_callback_url: "https://recovervaultpro.online/api/payment-callback", // 👈 Use your Render backend URL here
+        ipn_callback_url: "https://recovervault-backend.onrender.com/api/payment-callback", // 👈 Use your Render backend URL here
         success_url: "https://recovervaultpro.online/success",
         cancel_url: "https://recovervaultpro.online/failure",
       },
