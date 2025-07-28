@@ -56,6 +56,7 @@ app.post("/api/payment-callback", async (req, res) => {
   const data = req.body;
 
   const isSuccess = data.payment_status === "finished";
+  console.log(data.order_description)
   const userEmail = data.order_description.split("||")[0];
 
   const messageText = isSuccess
