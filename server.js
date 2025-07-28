@@ -52,7 +52,7 @@ app.post("/api/create-payment", async (req, res) => {
 });
 
 // ✅ Route: Handle callback from NowPayments after payment
-app.post("/api/payment-callback", async (req, res) => {
+app.post("/api/payment-callback",express.json({ type: "*/*" }), async (req, res) => {
   const data = req.body;
 console.log("Payment callback received:", data);
   const isSuccess = data.payment_status === "finished";
