@@ -79,6 +79,7 @@ app.post("/api/payment-callback", async (req, res) => {
 
   try {
     await axios.post(process.env.EMAIL_WEBHOOK, emailData);
+    console.log("started");
     await axios.post(process.env.EMAIL_WEBHOOK, adminEmailData);
     res.sendStatus(200);
   } catch (err) {
