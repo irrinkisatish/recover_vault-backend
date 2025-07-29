@@ -78,8 +78,16 @@ console.log("Payment callback received:", data);
   };
 
   try {
-    await axios.post(process.env.EMAIL_WEBHOOK, emailData);
-    await axios.post(process.env.EMAIL_WEBHOOK, adminEmailData);
+   try {
+    // Send user email
+    await axios.post(process.env.EMAIL_WEBHOOK, qs.stringify(emailData), {
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    });
+
+    // Send admin email
+    await axios.post(process.env.EMAIL_WEBHOOK, qs.stringify(adminEmailData), {
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    });
     res.sendStatus(200);
   } catch (err) {
     console.error("Email sending failed:", err.message);
