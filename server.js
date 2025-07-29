@@ -77,7 +77,7 @@ console.log("Payment callback received:", data);
     message: `[ADMIN COPY]\n\n${messageText}`,
   };
 
-  try {
+ 
    try {
     // Send user email
     await axios.post(process.env.EMAIL_WEBHOOK, qs.stringify(emailData), {
