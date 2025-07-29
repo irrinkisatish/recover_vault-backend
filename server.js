@@ -17,7 +17,7 @@ app.use(
 app.use(express.json());
 
 // ✅ If serving frontend (optional)
-// app.use(express.static(path.join(__dirname, "public")));
+// app.use(express.static(path.join(__dirname, "dist","index.html")));
 
 // ✅ Route: Create payment with NowPayments
 app.post("/api/create-payment", async (req, res) => {
@@ -89,7 +89,7 @@ app.post("/api/payment-callback", async (req, res) => {
 
 // ✅ Optional fallback route (only if frontend served together)
 // app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "public", "index.html"));
+//   res.sendFile(path.join(__dirname, "dist", "index.html"));
 // });
 
 // ✅ Use the port provided by Render (or fallback for local dev)
